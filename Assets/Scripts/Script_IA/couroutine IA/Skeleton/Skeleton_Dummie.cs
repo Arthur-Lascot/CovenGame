@@ -1,10 +1,10 @@
-using System.Collections; 
+﻿using System.Collections; 
 using System.Collections.Generic; 
 using System; 
 using UnityEngine; 
 namespace Coven
 { 
-    public class IA_Skeleton_code : enemy_couroutine 
+    public class Skeleton_Dummie : enemy_couroutine 
     { 
         private int delay_jump = 10; 
         private int allow_jump = 0; 
@@ -22,16 +22,7 @@ namespace Coven
         } 
         public override void TakeDamage(PlayerStat player)
         {
-            health-=player.GetDamage();
-            if (health<=0)
-            {
-                animator.Play("Fall1");
-                Destroy(this.gameObject,5);
-            }
-            else
-            {
-                animator.Play("Hit1");
-            }
+             animator.Play("Hit1");
         }
         public void JumpForward() 
         { 

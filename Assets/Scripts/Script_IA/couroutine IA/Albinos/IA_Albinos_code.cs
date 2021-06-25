@@ -50,7 +50,8 @@ namespace Coven
             foreach (var player in listPlayer)
             {
                 player.GetComponent<UnarmedCharacter>().status = Status.Stunned;
-                StopCoroutine(collision.gameObject.GetComponent<PlayerStat>().coroutine);
+                if (collision.gameObject.GetComponent<PlayerStat>().coroutine!=null){
+                StopCoroutine(collision.gameObject.GetComponent<PlayerStat>().coroutine);}
                 player.GetComponent<PlayerStat>().SetDOT_Time(3);
                 player.GetComponent<PlayerStat>().coroutine = StartCoroutine(collision.gameObject.GetComponent<PlayerStat>().GetOverTime());
             }

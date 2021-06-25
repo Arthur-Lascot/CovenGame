@@ -4,24 +4,23 @@ using UnityEngine;
  
 namespace Coven 
 { 
-public class IA_Skeleton : MonoBehaviour 
+public class Dummie : MonoBehaviour 
 { 
     public Animator animator; 
     public GameObject Weapon;
     CapsuleCollider playerCollider; 
-    IA_Skeleton_code Skeleton; 
+    Skeleton_Dummie Skeleton; 
     void Start() 
     { 
-        Skeleton = gameObject.AddComponent<IA_Skeleton_code>(); 
+        Skeleton = gameObject.AddComponent<Skeleton_Dummie>(); 
         Skeleton.SetTarget(null); 
         Skeleton.SetAnimator(animator);
         Skeleton.SetWeapon(Weapon);
         ((enemy_couroutine)Skeleton).SetAttackRange(2); 
         ((enemy_couroutine)Skeleton).SetMoveSpeed(3); 
         ((enemy_couroutine)Skeleton).SetAttackDelay(1); 
-        ((enemy_couroutine)Skeleton).SetAttackDammage(27);
-        ((enemy_couroutine)Skeleton).SetHealth(100);  
-        Skeleton.StartCoroutine("CheckEntity");
+        ((enemy_couroutine)Skeleton).SetAttackDammage(0);
+        ((enemy_couroutine)Skeleton).SetHealth(90000000);  
     } 
     // Update is called once per frame 
     void Update() 

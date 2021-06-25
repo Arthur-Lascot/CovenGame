@@ -18,7 +18,8 @@ public class PlayerStat : MonoBehaviour
     protected int knockBack=10; 
     public int GetDamage() 
     { 
-        return player.equipement.GetComponent<EquipmentManager>().currentEquipment[2].damageModifier; 
+        //Debug.Log("Les dégats du joueurs sont de : "+ player.equipement.GetComponent<EquipmentManager>().currentEquipment[2].damageModifier);
+        return 15 + player.equipement.GetComponent<EquipmentManager>().currentEquipment[2].damageModifier; 
     } 
     public int GetKnockBack() 
     { 
@@ -80,13 +81,13 @@ public class PlayerStat : MonoBehaviour
     }
     void Update()
     {
-        if (tag=="dead" && death<=Time.time && GameObject.FindGameObjectsWithTag("Player").Length==0)
+        /*if (tag=="dead" && death<=Time.time && GameObject.FindGameObjectsWithTag("Player").Length==0)
         {
             transform.position = (GameObject.FindGameObjectWithTag("Spawn")).transform.position;
             animator.SetBool("Dead",false);
             tag="Player";
             player.health = player.MaxHealth;
-        }
+        }*/
         if(tag=="Player" && player.status==Status.Stunned)
         {
             animator.SetBool("Dead",true);

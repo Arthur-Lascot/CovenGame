@@ -13,6 +13,7 @@ public class PlayerBug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = GameObject.FindWithTag("Player").transform.position;
+        if (GameObject.FindWithTag("Player")!=null){
+        transform.position = GameObject.FindWithTag("Player").transform.position;}
     }
 }

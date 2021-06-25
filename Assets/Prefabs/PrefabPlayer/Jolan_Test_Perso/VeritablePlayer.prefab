@@ -770,6 +770,7 @@ GameObject:
   - component: {fileID: 1780662711677605802}
   - component: {fileID: 8802761417715425228}
   - component: {fileID: 8640411475513137792}
+  - component: {fileID: 2599443237625393305}
   m_Layer: 0
   m_Name: 2Hand-Sword
   m_TagString: Untagged
@@ -868,6 +869,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300018, guid: b3685187de1594c42bd177fcaec0a56e, type: 3}
+--- !u!114 &2599443237625393305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780662711679535378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2768c345aeb6cc749afb66cce162f627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2049941370525769170
 GameObject:
   m_ObjectHideFlags: 0
@@ -4479,6 +4492,7 @@ GameObject:
   - component: {fileID: 7929222048453083311}
   - component: {fileID: 5068671703650968973}
   - component: {fileID: 5160855689238793856}
+  - component: {fileID: 767308095975112845}
   m_Layer: 0
   m_Name: hammer_mobile
   m_TagString: Untagged
@@ -4577,6 +4591,18 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: e94f169adba0e64428d5896df2280733, type: 3}
+--- !u!114 &767308095975112845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7929222048451092079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2768c345aeb6cc749afb66cce162f627, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7944686592860707408
 GameObject:
   m_ObjectHideFlags: 0

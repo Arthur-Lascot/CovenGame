@@ -25,8 +25,8 @@ namespace Coven
             health-=player.GetDamage();
             if (health<=0)
             {
-                animator.SetBool("Dead",true);
-                Destroy(this.gameObject,3);
+                animator.SetBool("dead",true);
+                Destroy(this.gameObject,4);
             }
         }
         public void JumpForward() 
