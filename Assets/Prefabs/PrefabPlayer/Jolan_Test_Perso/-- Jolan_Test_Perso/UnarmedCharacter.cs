@@ -12,6 +12,7 @@ public class UnarmedCharacter : MonoBehaviour
     public Transform cam;
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
+
     //interact
     public LayerMask interactionMask;
     public Camera camInteract;
@@ -38,6 +39,8 @@ public class UnarmedCharacter : MonoBehaviour
     public float celerity = 1;
 
     //generic attributes
+    public float damagePower = 15;
+    public float armorPower = 15;
     public float MaxHealth = 100;
     public float MaxMana = 100;
     public float health = 100;
@@ -46,6 +49,7 @@ public class UnarmedCharacter : MonoBehaviour
     public Image manaBar;
     public GameObject equipement;
     public GameObject inventoryUI;
+    public GameObject targetSpell;
 
     public Status status = Status.Healthy;
 
@@ -63,8 +67,11 @@ public class UnarmedCharacter : MonoBehaviour
         //PV and Mana update
         healthBar.fillAmount = health / MaxHealth;
         manaBar.fillAmount = mana / MaxMana;
+        mana += 0.05f;
         health = health > MaxHealth ? MaxHealth : health;
         mana = mana > MaxMana ? MaxMana : mana;
+        health = health <= 0 ? 0 : health;
+        mana = mana <= 0 ? 0 : mana;
              
         //Is grounded ??? and gravity
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
@@ -87,10 +94,10 @@ public class UnarmedCharacter : MonoBehaviour
             Weapon.SetActive(false);
         
         //Change Weapon
-        if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
+        /*if (equipement.GetComponent<EquipmentManager>().currentEquipment[2] == null)
             animator.SetInteger("Weapon", 0);
         else
-            animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);
+            animator.SetInteger("Weapon",(int) equipement.GetComponent<EquipmentManager>().currentEquipment[2].weapontype);*/
         
         
         //If in the inventory, you cannot do anything
@@ -163,9 +170,9 @@ public class UnarmedCharacter : MonoBehaviour
 
         if (isAttackPressed && isGrounded && Time.time > nextAttackTime)
         {
-            playerStat.SetIsHiting(true);
+            //playerStat.SetIsHiting(true);
             animator.SetInteger("Attack_NB", Random.Range(0, 6));
-            //animator.SetTrigger("Attack");
+            
             animator.SetBool("isAttacking",true);
             nextAttackTime = Time.time + attackCooldown;
         }
@@ -174,6 +181,8 @@ public class UnarmedCharacter : MonoBehaviour
             animator.SetBool("isAttacking",false);
         }
 
+        
+        
 
         //ToInteractWith object
         if (Input.GetKeyDown(KeyCode.E))
@@ -200,5 +209,4 @@ public enum Status
     Poisoned,
     Burned,
     Stunned,
-    Bleeding,
 }

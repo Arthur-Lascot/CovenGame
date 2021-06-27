@@ -20,6 +20,7 @@ public class Skeleton_Sword : MonoBehaviour
         {
             Debug.Log("hit");
             script.ApplyDamage(collision.gameObject);
+<<<<<<< HEAD
             if (Random.Range(0,10)==1)
             {
                 collision.gameObject.GetComponent<UnarmedCharacter>().status = Status.Bleeding;
@@ -27,6 +28,8 @@ public class Skeleton_Sword : MonoBehaviour
                 collision.gameObject.GetComponent<PlayerStat>().SetDOT_Time(5);
                 collision.gameObject.GetComponent<PlayerStat>().coroutine = StartCoroutine(collision.gameObject.GetComponent<PlayerStat>().GetOverTime());
             }
+=======
+>>>>>>> main
             IsHiting = false;
         }
     }

@@ -49,11 +49,16 @@ namespace Coven
             GameObject[] listPlayer = GameObject.FindGameObjectsWithTag("Player");
             foreach (var player in listPlayer)
             {
+<<<<<<< HEAD
                 player.GetComponent<UnarmedCharacter>().status = Status.Stunned;
                 if (collision.gameObject.GetComponent<PlayerStat>().coroutine!=null){
                 StopCoroutine(collision.gameObject.GetComponent<PlayerStat>().coroutine);}
                 player.GetComponent<PlayerStat>().SetDOT_Time(3);
                 player.GetComponent<PlayerStat>().coroutine = StartCoroutine(collision.gameObject.GetComponent<PlayerStat>().GetOverTime());
+=======
+                Animator animationPlayer = player.GetComponent<Animator>();
+                animationPlayer.SetTrigger("Dead");
+>>>>>>> main
             }
             allow_action = Time.time + 6;
             
