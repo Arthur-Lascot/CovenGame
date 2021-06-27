@@ -14,7 +14,7 @@ public class Hit_Dummie : MonoBehaviour
     {
         if (collider.gameObject.tag=="mob")
         {
-            target.GetComponent<Coven.Skeleton_Dummie>().TakeDamage(player.GetComponent<Coven.PlayerStat>());
+            collider.gameObject.GetComponent<Coven.Skeleton_Dummie>().TakeDamage();
         }
     }
 }

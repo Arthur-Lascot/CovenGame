@@ -10,6 +10,7 @@ public class PlayerWeapon : MonoBehaviour
     IA_Hob_Code Hob;
     IA_Skeleton_code Skeleton;
     Skeleton_Dummie Dummie;
+    Boss_IA Boss;
 
     public void SetIsHiting(bool isHiting)
     {
@@ -41,6 +42,11 @@ public class PlayerWeapon : MonoBehaviour
             Dummie = mob.GetComponent<Skeleton_Dummie>();
             return "Dummie";
         }
+        if (mob.GetComponent<Boss_IA>()!=null)
+        {
+            Boss = mob.GetComponent<Boss_IA>();
+            return "Boss";
+        }
         return null;
     }
     void OnTriggerEnter(Collider collider)
@@ -58,7 +64,9 @@ public class PlayerWeapon : MonoBehaviour
                                 break;
                 case "Skeleton" : Skeleton.TakeDamage(playerStat);
                                   break;
-                default: Dummie.TakeDamage(playerStat);
+                case "Boss" : Boss.TakeDamage(playerStat.GetDamage());
+                              break;
+                default: Dummie.TakeDamage();
                          break;
             }
             isHiting = false;

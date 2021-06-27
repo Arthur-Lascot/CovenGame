@@ -49,8 +49,11 @@ public class PlayerStat : MonoBehaviour
         if (player.health<=0) 
         { 
             gameObject.tag = "dead";
-            enemy_couroutine script = HitFrom.GetComponent<enemy_couroutine>(); 
-            script.SetTarget(null);
+            if (HitFrom!=null)
+            {
+                enemy_couroutine script = HitFrom.GetComponent<enemy_couroutine>(); 
+                script.SetTarget(null);
+            }
             animator.SetBool("Dead",true);
             death = Time.time + 3;
         } 
@@ -81,20 +84,23 @@ public class PlayerStat : MonoBehaviour
     }
     void Update()
     {
-        /*if (tag=="dead" && death<=Time.time && GameObject.FindGameObjectsWithTag("Player").Length==0)
+        if (player!=null)
         {
-            transform.position = (GameObject.FindGameObjectWithTag("Spawn")).transform.position;
-            animator.SetBool("Dead",false);
-            tag="Player";
-            player.health = player.MaxHealth;
-        }*/
-        if(tag=="Player" && player.status==Status.Stunned)
-        {
-            animator.SetBool("Dead",true);
-        }
-        if (tag=="Player" && player.status!=Status.Stunned)
-        {
-            animator.SetBool("Dead",false);
+            if (tag=="dead" && death<=Time.time && GameObject.FindGameObjectsWithTag("Player").Length==0)
+            {
+                transform.position = (GameObject.FindGameObjectWithTag("Spawn")).transform.position;
+                animator.SetBool("Dead",false);
+                tag="Player";
+                player.health = player.MaxHealth;
+            }
+            if(tag=="Player" && player.status==Status.Stunned)
+            {
+                animator.SetBool("Dead",true);
+            }
+            if (tag=="Player" && player.status!=Status.Stunned)
+            {
+                animator.SetBool("Dead",false);
+            }
         }
     }
 } }
